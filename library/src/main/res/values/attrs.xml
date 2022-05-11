@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="indicator">
+        <attr name="dotColor" format="color" />
+        <attr name="selectedColor" format="color" />
+        <attr name="dotWidth" format="dimension" />
+        <attr name="dotHeight" format="dimension" />
+        <attr name="dotRadius" format="dimension" />
+        <attr name="progressMode" format="boolean" />
+        <attr name="dotElevation" format="dimension" />
+        <attr name="dotStrokeWidth" format="dimension" />
+        <attr name="dotSpacing" format="dimension" />
+        <attr name="dotWidthFactor" format="float" />
+    </declare-styleable>
+</resources>
