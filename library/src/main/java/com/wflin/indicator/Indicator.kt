@@ -13,10 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
-import com.ets100.secondary.R
-import com.ets100.secondary.utils.ext.dp
-import com.ets100.secondary.utils.ext.setHeight
-import com.ets100.secondary.utils.ext.setWidth
 
 /**
  * ViewPager指示器

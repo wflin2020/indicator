@@ -1,13 +1,15 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
+    id 'signing'
+    id("org.jetbrains.dokka") version "1.6.0"
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.wflin.indicator"
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -29,14 +31,34 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    android.libraryVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "indicator-${buildType.name}.aar"
+            outputFileName = fileName
+        }
+    }
 }
 
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
+
+dokkaHtml.configure {
+    dokkaSourceSets {
+        named("main") {
+            noAndroidSdkLink.set(false)
+        }
+    }
+}
+
+tasks.named("dokkaJavadoc") {
+    outputDirectory.set(new File("$rootDir/javadoc"))
+}
+
+apply from: '../maven-publish.gradle'
